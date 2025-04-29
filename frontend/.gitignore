@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python backend
+backend/venv/
+backend/__pycache__/
+
+# Node frontend
+frontend/node_modules/
+frontend/dist/
+
+# System files
+.DS_Store
+
+# Database (optional if you don't want to upload local test DB)
+backend/broke_bites.db
+
