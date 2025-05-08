@@ -1,42 +1,15 @@
-import sqlite3
-conn = sqlite3.connect('broke_bites.db')
-c = conn.cursor()
+import psycopg2
+from psycopg2.extras import RealDictCursor
+import os
+from dotenv import load_dotenv
 
-c.execute('''
-  CREATE TABLE IF NOT EXISTS deals (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          item_name TEXT NOT NULL,
-          price REAL,
-          store_name TEXT
-          )
-'''
-)
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/frugalfeast')
 
+def get_connection():
+    return psycopg2.connect(DATABASE_URL)
 
-def insert_deal(item_name,price,store_name):
-  conn = sqlite3.connect('broke_bites.db')
-  c = conn.cursor()
-  c.execute('INSERT INTO deals (item_name, price, store_name) VALUES (?,?,?)', (item_name, price, store_name))
+def get_dict_cursor(conn):
+    return conn.cursor(cursor_factory=RealDictCursor)
 
-  conn.commit()
-  conn.close()
-
-def fetch_all_deals():
-  conn = sqlite3.connect('broke_bites.db')
-  c = conn.cursor()
-  c.execute('SELECT item_name, price, store_name FROM deals')
-  results = c.fetchall()
-  conn.close()
-  return results
-
-def clear_deals():
-  conn = sqlite3.connect('broke_bites.db')
-  c = conn.cursor()
-  c.execute('DELETE FROM deals')
-  conn.commit()
-  conn.close()
-  
-if __name__ == "__main__":
-  deals = fetch_all_deals()
-  for deal in deals:
-      print(deal)
