@@ -11,4 +11,26 @@ client/dist/
 .DS_Store
 
 # Database (optional if you don't want to upload local test DB)
-server/broke_bites.db 
+server/broke_bites.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Node
+node_modules/
+dist/
+build/
+
+# Misc
+.DS_Store
+*.log 
