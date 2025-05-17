@@ -1,33 +1,50 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ShoppingBasket } from "lucide-react";
+
+{/* define navigation links*/}
+const navLinks = [
+  { to:"/", label: "Home"},
+  { to:"/stores", label: "Browser Stores"},
+  { to: "saved", label: "My Recipes"},
+];
 
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 border-b border-slate-200 bg-white z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <ShoppingBasket className="h-6 w-6 text-emerald-500" />
-          <span className="font-bold text-xl text-slate-800">FlyerRecipes</span>
-        </Link>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between"> 
+        
+        {/* logo */}
+        <NavLink to="/" className="flex items-center gap-2" aria-label="BrokeBites Home">
+          <ShoppingBasket className="h-6 w-6 text-emerald-500" aria-hidden="true" />
+          <span className="font-bold text-xl text-slate-800">BrokeBites</span>
+        </NavLink>
 
-        <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-slate-600 hover:text-slate-900">
-            Home
-          </Link>
-          <Link to="/stores" className="text-slate-600 hover:text-slate-900">
-            Browse Stores
-          </Link>
-          <Link to="#" className="text-slate-600 hover:text-slate-900">
-            How It Works
-          </Link>
+        {/* highlight active  */}
+        <nav aria-lavel="Primary nagivation" className="flex items-center gap-6">
+          {navLinks.map(({to, label}) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({isActive}) =>
+                isActive
+                ? "text-emerald-500 font-medium focus-visible:ring-2 focus-visible:ring-emerald-500"
+                : "text-slate-600 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-emerald-500"
+            }
+            >
+              {label}
+            </NavLink>
+          ))}
         </nav>
-
+        
+        {/* sign-in/sign-up*/}
         <div className="flex items-center gap-2">
-          <Button variant="ghost" className="text-slate-600">
-            Sign In
+          <Button asChild variant="ghost" >
+            <NavLink to="/sign-in"> Sign In </NavLink>
           </Button>
-          <Button className="bg-emerald-500 hover:bg-emerald-600">Sign Up</Button>
+          <Button asChild className="bg-emerald-500 hover:bg-emerald-600">
+            <NavLink to="/sign-up" > Sign Up </NavLink>
+            </Button>
         </div>
       </div>
     </header>
