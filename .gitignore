@@ -1,14 +1,14 @@
 # Python backend
-backend/venv/
-backend/__pycache__/
-backend/.env
+server/venv/
+server/__pycache__/
+server/.env
 
 # Node frontend
-frontend/node_modules/
-frontend/dist/
+client/node_modules/
+client/dist/
 
 # System files
 .DS_Store
 
 # Database (optional if you don't want to upload local test DB)
-backend/broke_bites.db 
+server/broke_bites.db 
