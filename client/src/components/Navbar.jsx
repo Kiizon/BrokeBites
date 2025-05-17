@@ -5,8 +5,8 @@ import { ShoppingBasket } from "lucide-react";
 {/* define navigation links*/}
 const navLinks = [
   { to:"/", label: "Home"},
-  { to:"/stores", label: "Browser Stores"},
-  { to: "saved", label: "My Recipes"},
+  { to:"/browse-stores", label: "Browse Stores"},
+  { to: "/saved-recipes", label: "My Recipes"},
 ];
 
 export default function Navbar() {
