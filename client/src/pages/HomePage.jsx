@@ -1,4 +1,3 @@
-// src/components/HomePage.jsx
 import { PostalForm } from "@/components/PostalForm"
 import hero from "@/assets/hero.jpg"
 
@@ -7,7 +6,7 @@ export default function HomePage() {
     <section className="min-h-[80vh] flex items-center bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Hero Image */}
+          
           <div className="relative h-[500px] order-2 md:order-1">
             <img
               src={hero}

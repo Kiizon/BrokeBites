@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:pass@localhost/your_db")
-FLIPP_API_URL = "https://flipp-undocumented/api/flyers"
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

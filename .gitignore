@@ -2,6 +2,8 @@
 server/venv/
 server/__pycache__/
 server/.env
+server/instance/
+*.swp
 
 # Node frontend
 client/node_modules/
