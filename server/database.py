@@ -13,3 +13,13 @@ def get_connection():
 def get_dict_cursor(conn):
     return conn.cursor(cursor_factory=RealDictCursor)
 
+def fetch_all_deals():
+    conn = get_connection()
+    cur = conn.cursor()
+    try:
+        cur.execute("SELECT item_name, price, store_name FROM deals")
+        return cur.fetchall()
+    finally:
+        cur.close()
+        conn.close()
+

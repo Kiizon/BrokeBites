@@ -21,7 +21,7 @@ export default function Navbar() {
         </NavLink>
 
         {/* highlight active  */}
-        <nav aria-lavel="Primary nagivation" className="flex items-center gap-6">
+        <nav aria-label="Primary Nagivation" className="flex items-center gap-6">
           {navLinks.map(({to, label}) => (
             <NavLink
               key={to}
