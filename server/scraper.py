@@ -9,10 +9,10 @@ FLYERS_ENDPOINT      = 'https://flyers-ng.flippback.com/api/flipp/data?locale=en
 GROCERY_STORES       = {'No Frills', 'FreshCo'}
 DEALS_ENDPOINT = 'https://flyers-ng.flippback.com/api/flipp/flyers/{}/flyer_items?locale=en&sid={}'
 
-def generate_sid() -> str:
+def generate_sid():
     return ''.join(str(random.randint(0, 9)) for _ in range(16))
 
-def fetch_and_upsert_stores(postal_code: str) -> list[Store]:
+def fetch_and_upsert_stores(postal_code: str):
     """
     Fetches grocery flyers for this postal code, upserts each merchant
     into the DB, and returns the list of ORM Store objects.
