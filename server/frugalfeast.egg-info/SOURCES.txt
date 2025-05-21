@@ -1,0 +1,13 @@
+setup.py
+frugalfeast.egg-info/PKG-INFO
+frugalfeast.egg-info/SOURCES.txt
+frugalfeast.egg-info/dependency_links.txt
+frugalfeast.egg-info/requires.txt
+frugalfeast.egg-info/top_level.txt
+models/__init__.py
+models/deal.py
+models/recipe.py
+models/region.py
+routes/__init__.py
+routes/deals.py
+routes/recipes.py

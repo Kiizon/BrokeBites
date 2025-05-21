@@ -1,13 +1,12 @@
-from app import db
-from datetime import datetime
+from db import db
 
 class Region(db.Model):
-  __tablename__ = "regions"
-  id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(100), nullable=False, unique=True)
-  fsa         = db.Column(db.String(3), nullable=False, unique=True)
-  last_scrape = db.Column(db.DateTime, default=None)
-  deals = db.relationship('Deal', backref='region', lazy=True)
+    __tablename__ = 'regions'
 
-  def __repr__(self):
-      return f"<Region {self.name}>"
+    id          = db.Column(db.Integer, primary_key=True)
+    fsa         = db.Column(db.String, unique=True, nullable=False)
+    last_scrape = db.Column(db.DateTime)
+
+    # relationship: a region has many deals
+    deals       = db.relationship('Deal', backref='region', lazy='dynamic')
+  
