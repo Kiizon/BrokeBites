@@ -1,8 +1,7 @@
-# repositories/store_coverage_repo.py
 from db import db
 from models.store_coverage import StoreCoverage
 
-def upsert_store_coverage(store_id: int, region_id: int) -> StoreCoverage:
+def upsert_store_coverage(store_id: int, region_id: int):
     """
     Ensure a StoreCoverage row exists for this store↔region pair.
     """
